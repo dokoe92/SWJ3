@@ -1,5 +1,6 @@
 package swj3.collections;
 
+import java.time.LocalDate;
 import java.util.Iterator;
 
 public class SetMain {
@@ -64,23 +65,23 @@ public class SetMain {
           System.out.print(item + " ");
         System.out.println();
 
-        //System.out.println("============= SortedMultiSet<Person> (default comparator) =============");
+        System.out.println("============= SortedMultiSet<Person> (default comparator) =============");
 
-        //SortedMultiSet<Person> personSet1 = new BSTMultiSet<>();
-        //personSet1.add(new Person("Wallner", LocalDate.of(1995, 1, 1)));
-        //personSet1.add(new Person("Huber", LocalDate.of(1992, 1, 1)));
-        //personSet1.add(new Person("Huber", LocalDate.of(1990, 1, 1)));
-        //personSet1.add(new Person("Mayr", LocalDate.of(2000, 1, 1)));
-        //System.out.printf("personSet1 = %s%n", personSet1);
+        SortedMultiSet<Person> personSet1 = new BSTMultiSet<>();
+        personSet1.add(new Person("Wallner", LocalDate.of(1995, 1, 1)));
+        personSet1.add(new Person("Huber", LocalDate.of(1992, 1, 1)));
+        personSet1.add(new Person("Huber", LocalDate.of(1990, 1, 1)));
+        personSet1.add(new Person("Mayr", LocalDate.of(2000, 1, 1)));
+        System.out.printf("personSet1 = %s%n", personSet1);
 
-        //System.out.println("========= SortedMultiSet<Person> (compare by dob) =============");
-        //SortedMultiSet<Person> personSet2 = new BSTMultiSet<>(
-        //        (p1, p2) -> p1.getDob().compareTo(p2.getDob())
-        //);
-        //for(Person person : personSet1) {
-        //  personSet2.add(person);
-        //}
-        //System.out.printf("personSet2 = %s%n", personSet2);
+//        System.out.println("========= SortedMultiSet<Person> (compare by dob) =============");
+//        SortedMultiSet<Person> personSet2 = new BSTMultiSet<>(
+//                (p1, p2) -> p1.getDob().compareTo(p2.getDob())
+//        );
+//        for(Person person : personSet1) {
+//          personSet2.add(person);
+//        }
+//        System.out.printf("personSet2 = %s%n", personSet2);
     }
 
 
