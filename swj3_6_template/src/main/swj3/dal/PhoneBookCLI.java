@@ -28,7 +28,9 @@ public class PhoneBookCLI {
         String command;
 
         try {
-            PersonDao personDao = new PersonDaoJdbc(CONNECTION_STRING, USER_NAME, PASSWORD);
+//            PersonDao personDao =
+            SimpleConnectionPool pool = new SimpleConnectionPool(CONNECTION_STRING, USER_NAME, PASSWORD, POOL_SIZE);
+            PersonDao personDao = new PersonDaoJdbc(pool);
 
             System.out.println();
             System.out.println("currently " + personDao.count() + " entries in phone book");

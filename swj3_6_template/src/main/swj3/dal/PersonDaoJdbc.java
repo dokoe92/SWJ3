@@ -7,21 +7,31 @@ import java.util.Optional;
 
 public class PersonDaoJdbc implements PersonDao {
 
-    private final String connectionString;
-    private final String userName;
-    private final String password;
+//    private final String connectionString;
+//    private final String userName;
+//    private final String password;
+//
+//    public PersonDaoJdbc(String connectionString, String userName, String password) {
+//        this.connectionString = connectionString;
+//        this.userName = userName;
+//        this.password = password;
+//    }
 
-    public PersonDaoJdbc(String connectionString, String userName, String password) {
-        this.connectionString = connectionString;
-        this.userName = userName;
-        this.password = password;
+    private final SimpleConnectionPool pool;
+
+    public PersonDaoJdbc(SimpleConnectionPool pool) {
+        this.pool = pool;
     }
 
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(connectionString, userName, password);
+//        return DriverManager.getConnection(connectionString, userName, password);
+        return pool.getConnection();
     }
 
     private void releaseConnection(Connection conn) {
+        if (conn != null) {
+            pool.releaseConnection(conn);
+        }
     }
 
     /**
